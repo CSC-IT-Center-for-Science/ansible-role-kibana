@@ -1,0 +1,18 @@
+---
+# defaults for ansible-kibana4
+kibana4_plugins: 
+ - "kibana/timelion"
+
+# kibana4_version controls which release to install
+kibana4_version: "4.3.0-linux-x64"
+kibana4_path: "/opt/kibana-{{ kibana4_version }}"
+kibana4_symlink: "/opt/kibana4"
+kibana4_config_yml: "kibana4-demo-config.yml.j2"
+kibana4_init_script: "kibana4-demo-logstash-web.init"
+kibana4_ldap: True
+
+es_http_port: "9199"
+
+kibana4_send_tarball: False
+kibana4_download_url: "https://download.elastic.co/kibana/kibana"
+
