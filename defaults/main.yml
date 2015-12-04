@@ -16,5 +16,5 @@ es_http_port: "9199"
 kibana4_send_tarball: False
 kibana4_download_url: "https://download.elastic.co/kibana/kibana"
 
-use_kibana4_httpd: true
+use_kibana4_httpd: True
 
