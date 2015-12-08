@@ -23,8 +23,15 @@
                group=csc
     when: kibana4path.stat.exists == False and kibana4_send_tarball
 
-  - name: get_url and unpack kibana4 if kibana4_send_tarball is False
-    unarchive: src={{ kibana4_download_url }}/kibana-{{ kibana4_version }}.tar.gz
+  - name: get_url kibana4 if kibana4_send_tarball is False
+    get_url: url={{ kibana4_download_url }}/kibana-{{ kibana4_version }}.tar.gz 
+             dest=/opt/
+             owner=logstash
+             group=csc
+    when: kibana4path.stat.exists == False and kibana4_send_tarball == False
+
+  - name: unpack kibana4 if kibana4_send_tarball is False
+    unarchive: src=/opt/kibana-{{ kibana4_version }}.tar.gz
                dest=/opt/
                owner=logstash
                group=csc
