@@ -28,6 +28,7 @@
                dest=/opt/
                owner=logstash
                group=csc
+               copy=no
     when: kibana4path.stat.exists == False and kibana4_send_tarball == False
 
   - name: set permissions and ownerships
