@@ -4,7 +4,7 @@ kibana4_plugins:
  - "kibana/timelion"
 
 # kibana4_version controls which release to install
-kibana4_version: "4.3.0-linux-x64"
+kibana4_version: "4.3.1-linux-x64"
 kibana4_path: "/opt/kibana-{{ kibana4_version }}"
 kibana4_symlink: "/opt/kibana4"
 kibana4_config_yml: "kibana4-demo-config.yml.j2"
