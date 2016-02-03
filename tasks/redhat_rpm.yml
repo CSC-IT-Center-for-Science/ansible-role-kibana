@@ -17,8 +17,8 @@
   - name: Display cluster health
     debug: var=clusterhealth
 
-  - name: install kibana4 plugin show no process, timeout after 30s
-    command: /opt/kibana4/bin/kibana plugin -s -t 30 -i {{ item }}
+  - name: install kibana plugin show no process, timeout after 30s
+    command: /opt/kibana/bin/kibana plugin -s -t 30 -i {{ item }}
     when: kibana4_plugins.0 != ""
     with_items: kibana4_plugins
     register: kibana4_plugin_install
