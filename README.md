@@ -6,13 +6,21 @@ Installs and configures Kibana4
 Requirements
 ------------
 
- - ES 2.1
- - Kibana 4.3
+ - ES 2.2
+ - Kibana 4.4
 
 Role Variables
 --------------
 
 see defaults/main.yml
+
+The two important ones:
+
+ - kibana4_tar: False
+ - kibana4_yum: True
+ - kibana_branch: "4.4"
+
+This is the default and means that kibana version kibana_branch is installed from yum.
 
 Dependencies
 ------------

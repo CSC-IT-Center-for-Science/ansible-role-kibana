@@ -1,0 +1,7 @@
+[kibana-{{ kibana_branch }}]
+name=Kibana repository for {{ kibana_branch }} packages
+baseurl=http://packages.elastic.co/kibana/{{ kibana_branch }}/centos
+gpgcheck=1
+gpgkey=http://packages.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+

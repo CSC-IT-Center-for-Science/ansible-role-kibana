@@ -1,0 +1,39 @@
+---
+
+  - name: template in kibana yum repo config
+    template: src=kibana.repo dest=/etc/yum.repos.d/kibana.repo mode=0644
+
+  - name: install kibana 
+    yum: name=kibana state=installed
+
+  - name: send in kibana4's config.yml
+    template: src={{ kibana4_config_yml }} dest=/opt/kibana/config/kibana.yml owner=logstash group=csc mode=0644 backup=yes
+    register: reg_kibana4_config_file
+
+  - name: grab cluster health
+    action: uri url=http://localhost:{{ es_http_port }}/_cluster/health return_content=yes
+    register: clusterhealth
+
+  - name: Display cluster health
+    debug: var=clusterhealth
+
+  - name: install kibana4 plugin show no process, timeout after 30s
+    command: /opt/kibana4/bin/kibana plugin -s -t 30 -i {{ item }}
+    when: kibana4_plugins.0 != ""
+    with_items: kibana4_plugins
+    register: kibana4_plugin_install
+    ignore_errors: True
+
+  - name: Display kibana_plugin_install
+    debug: var=kibana4_plugin_install
+
+  - name: start kibana service
+    service: name=kibana enabled=yes state=started
+
+  - name: restart kibana service if plugin was installed
+    service: name=kibana state=restarted
+    when: kibana4_plugin_install.changed and kibana4_plugin_install.failed != True
+
+  - name: restart kibana service if config changed
+    service: name=kibana state=restarted
+    when: reg_kibana4_config_file.changed

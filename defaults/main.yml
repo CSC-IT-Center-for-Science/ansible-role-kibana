@@ -3,12 +3,19 @@
 kibana4_plugins: 
  - "kibana/timelion"
 
+### Tar Ball installation (before Kibana 4.4)
 # kibana4_version controls which release to install
+kibana4_tar: False
 kibana4_version: "4.3.1-linux-x64"
+# kibana_branch - used to install kibana via yum and not from tar-ball
 kibana4_path: "/opt/kibana-{{ kibana4_version }}"
 kibana4_symlink: "/opt/kibana4"
 kibana4_config_yml: "kibana4-demo-config.yml.j2"
 kibana4_init_script: "kibana4-demo-logstash-web.init"
+### rpm installation (Kibana 4.4 and later)
+# kibana_branch - used to install kibana via yum and not from tar-ball
+kibana4_yum: True
+kibana_branch: "4.4"
 kibana4_ldap: True
 
 es_http_port: "9199"

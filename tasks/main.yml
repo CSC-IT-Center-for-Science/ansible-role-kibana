@@ -1,4 +1,6 @@
 ---
-  - include: redhat.yml
-    when: ansible_os_family == "RedHat" and use_kibana4_httpd
-#    when: ansible_os_family == "RedHat" and use_kibana4_httpd == true and addkibana4initscript.changed
+  - include: redhat_tar.yml
+    when: ansible_os_family == "RedHat" and use_kibana4_httpd and kibana4_tar
+
+  - include: redhat_rpm.yml
+    when: ansible_os_family == "RedHat" and use_kibana4_httpd and kibana4_yum
