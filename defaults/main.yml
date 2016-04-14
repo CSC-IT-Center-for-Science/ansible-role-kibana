@@ -15,7 +15,7 @@ kibana4_init_script: "kibana4-demo-logstash-web.init"
 ### rpm installation (Kibana 4.4 and later)
 # kibana_branch - used to install kibana via yum and not from tar-ball
 kibana4_yum: True
-kibana_branch: "4.4"
+kibana_branch: "4.5"
 kibana4_ldap: True
 
 es_http_port: "9199"
