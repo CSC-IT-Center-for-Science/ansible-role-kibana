@@ -1,8 +1,10 @@
+# Managed by ansible
+#
 # Kibana is served by a back end server. This controls which port to use.
-server.port: 5601
+server.port: {{ kibana4_server_port }}
 
 # The host to bind the server to.
-server.host: "0.0.0.0"
+server.host: "{{ kibana4_server_host }}"
 
 # If you are running kibana behind a proxy, and want to mount it at a path,
 # specify that path here. The basePath can't end in a slash.
@@ -12,18 +14,18 @@ server.host: "0.0.0.0"
 # server.maxPayloadBytes: 1048576
 
 # The Elasticsearch instance to use for all your queries.
-elasticsearch.url: "http://127.0.0.1:8444"
+elasticsearch.url: "{{ kibana4_es_url }}"
 
 # preserve_elasticsearch_host true will send the hostname specified in `elasticsearch`. If you set it to false,
 # then the host you use to connect to *this* Kibana instance will be sent.
-elasticsearch.preserveHost: true
+elasticsearch.preserveHost: {{ kibana4_es_preserveHost }}
 
 # Kibana uses an index in Elasticsearch to store saved searches, visualizations
 # and dashboards. It will create a new index if it doesn't already exist.
-kibana.index: "demo-kibana4-int"
+kibana.index: "{{ kibana4_index | default('kibana4-int') }}"
 
 # The default application to load.
-kibana.defaultAppId: "discover"
+kibana.defaultAppId: "{{ kibana4_defaultAppId }}"
 
 # If your Elasticsearch is protected with basic auth, these are the user credentials
 # used by the Kibana server to perform maintenance on the kibana_index at startup. Your Kibana
@@ -77,3 +79,11 @@ kibana.defaultAppId: "discover"
 
 # Set this to true to log all events, including system usage information and all requests.
 # logging.verbose: false
+
+{% if kibana4_extra_settings is defined %}
+# Extra kibana4 settings
+{% for k4setting in kibana4_extra_settings %}
+{{ k4settings }}
+{% endfor %}
+{% endif %}
+# 
