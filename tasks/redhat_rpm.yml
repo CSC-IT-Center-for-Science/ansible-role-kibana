@@ -24,6 +24,9 @@
     register: kibana4_plugin_install
     ignore_errors: True
 
+  - name: set kibana user as owner recursively in /opt/kibana/optimize
+    file: path=/opt/kibana/optimize state=directory owner=kibana recurse=yes
+
   - name: Display kibana_plugin_install
     debug: var=kibana4_plugin_install
 
