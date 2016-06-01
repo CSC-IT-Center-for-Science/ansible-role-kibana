@@ -4,10 +4,10 @@
     template: src=kibana.repo dest=/etc/yum.repos.d/kibana.repo mode=0644
 
   - name: install kibana 
-    yum: name=kibana state=installed
+    package: name=kibana state=installed
 
   - name: send in kibana4's config.yml
-    template: src={{ kibana4_config_yml }} dest=/opt/kibana/config/kibana.yml owner=logstash group=csc mode=0644 backup=yes
+    template: src={{ kibana4_config_yml }} dest=/opt/kibana/config/kibana.yml owner=kibana group=kibana mode=0644 backup=yes
     register: reg_kibana4_config_file
 
   - name: grab cluster health
