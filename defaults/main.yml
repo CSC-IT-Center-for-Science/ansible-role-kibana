@@ -25,6 +25,7 @@ kibana4_download_url: "https://download.elastic.co/kibana/kibana"
 
 use_kibana4_httpd: True
 
+### Variables used inside the kibana config template:
 kibana4_index: "demo-kibana4-int"
 kibana4_es_url: "http://127.0.0.1:8444"
 kibana4_server_port: "5601"
@@ -33,3 +34,4 @@ kibana4_es_preserveHost: "true"
 kibana4_defaultAppId: "discover"
 #kibana4_extra_settings:
 # - elasticsearch.username: "user"
+### End of variables used inside the kibana config template
