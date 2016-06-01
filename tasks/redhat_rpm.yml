@@ -20,7 +20,7 @@
   - name: install kibana plugins
     command: /opt/kibana/bin/kibana plugin -i {{ item }}
     when: kibana4_plugins.0 != ""
-    with_items: kibana4_plugins
+    with_items: "{{ kibana4_plugins }}"
     register: kibana4_plugin_install
     ignore_errors: True
 
