@@ -35,7 +35,7 @@
 
   - name: restart kibana service if plugin was installed
     service: name=kibana state=restarted
-    when: kibana4_plugin_install.changed and kibana4_plugin_install.failed != True
+    when: kibana4_plugin_install.changed and (kibana4_plugin_install.failed is defined and kibana4_plugin_install.failed != True)
 
   - name: restart kibana service if config changed
     service: name=kibana state=restarted
