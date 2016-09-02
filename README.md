@@ -3,18 +3,18 @@ ansible-role-kibana4
 
 Installs and configures Kibana4
 
-Requirements
+Tested With
 ------------
 
- - ES 2.3
- - Kibana 4.6
+ - ES 2.3-2.4
+ - Kibana 4.5-4.6
 
 Role Variables
 --------------
 
 see defaults/main.yml
 
-The two important ones:
+The important ones:
 
  - kibana4_tar: False
  - kibana4_yum: True
@@ -22,8 +22,20 @@ The two important ones:
 
 This is the default and means that kibana version kibana_branch is installed from yum.
 
-Dependencies
+Related Roles
 ------------
+
+<pre>
+# sets up a curator cronjob (retention handling)
+- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elasticsearch-curator
+
+# elasticsearch role configures elasticsearch
+- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elasticsearch
+
+# installs elastic repos and then installs software from there - logstash and elasticsearch
+- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elk
+</pre>
+
 
 
 Example Playbook
