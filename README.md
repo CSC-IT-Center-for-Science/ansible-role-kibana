@@ -7,7 +7,7 @@ Requirements
 ------------
 
  - ES 2.3
- - Kibana 4.5
+ - Kibana 4.6
 
 Role Variables
 --------------
@@ -18,7 +18,7 @@ The two important ones:
 
  - kibana4_tar: False
  - kibana4_yum: True
- - kibana_branch: "4.5"
+ - kibana_branch: "4.6"
 
 This is the default and means that kibana version kibana_branch is installed from yum.
 
