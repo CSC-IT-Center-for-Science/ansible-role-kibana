@@ -9,6 +9,8 @@ Tested With
  - ES 2.3-2.4
  - Kibana 4.5-4.6
 
+ - ES 5.x and Kibana 5.x
+
 Role Variables
 --------------
 
@@ -18,7 +20,7 @@ The important ones:
 
  - kibana4_tar: False
  - kibana4_yum: True
- - kibana_branch: "4.6"
+ - kibana_branch: "5.x"
 
 This is the default and means that kibana version kibana_branch is installed from yum.
 
