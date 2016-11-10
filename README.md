@@ -1,7 +1,7 @@
 ansible-role-kibana4
 =========
 
-Installs and configures Kibana4
+Installs and configures Kibana4 and Kibana5
 
 Tested With
 ------------
@@ -36,6 +36,9 @@ Related Roles
 
 # installs elastic repos and then installs software from there - logstash and elasticsearch
 - src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elk
+
+# configures httpd to proxy traffic for kibana
+- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elk-httpd
 </pre>
 
 
@@ -47,6 +50,10 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
+         - { role: ansible-role-elk }
+         - { role: ansible-role-elasticsearch }
+         - { role: ansible-role-elasticsearch-curator }
+         - { role: ansible-role-elk-httpd }
          - { role: ansible-role-kibana4 }
 
 License
