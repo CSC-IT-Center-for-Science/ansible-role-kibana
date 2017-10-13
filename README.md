@@ -1,4 +1,4 @@
-ansible-role-kibana4
+ansible-role-kibana
 =========
 
 Installs and configures Kibana4 and Kibana5
@@ -29,16 +29,16 @@ Related Roles
 
 <pre>
 # sets up a curator cronjob (retention handling)
-- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elasticsearch-curator
+- src: https://github.com/CSCfi/ansible-role-elasticsearch-curator
 
 # elasticsearch role configures elasticsearch
-- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elasticsearch
+- src: https://github.com/CSCfi/ansible-role-elasticsearch
 
 # installs elastic repos and then installs software from there - logstash and elasticsearch
-- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elk
+- src: https://github.com/CSCfi/ansible-role-elk
 
 # configures httpd to proxy traffic for kibana
-- src: https://github.com/CSC-IT-Center-for-Science/ansible-role-elk-httpd
+- src: https://github.com/CSCfi/ansible-role-elk-httpd
 </pre>
 
 
